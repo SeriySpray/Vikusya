@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="dark" lang="uk"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Історія еволюції дрифту | VFDD</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FF1493", // Deep Pink as seen in screenshot accent
+                        "background-light": "#fdf2f8",
+                        "background-dark": "#0a0a0c",
+                    },
+                    fontFamily: {
+                        display: ["Space Grotesk", "Noto Sans JP", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.5), 0 0 20px rgba(255, 20, 147, 0.3);
+        }
+        .timeline-line {
+            background: linear-gradient(180deg, transparent 0%, #FF1493 15%, #FF1493 85%, transparent 100%);
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 20, 147, 0.1);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<nav class="fixed w-full z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-pink-200 dark:border-pink-900/30">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-20 items-center">
+<div class="flex items-center space-x-2">
+<span class="font-display font-bold text-2xl tracking-tighter italic text-primary">VFDD</span>
+<div class="h-6 w-[2px] bg-slate-300 dark:bg-slate-700"></div>
+<span class="font-display text-sm tracking-widest hidden sm:block">DRIFT WORLD</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="index.html">Головна</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="reg.html">Реєстрація</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="history.html">Історія</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Легенди</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Розклад</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Про ВФДД</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons text-xl dark:hidden">dark_mode</span>
+<span class="material-icons text-xl hidden dark:block">light_mode</span>
+</button>
+<button class="bg-primary hover:bg-pink-600 text-white px-6 py-2 rounded-full font-bold text-sm transition-all transform hover:scale-105">
+                        КВИТКИ
+                    </button>
+</div>
+</div>
+</div>
+</nav>
+<section class="relative pt-32 pb-20 overflow-hidden">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-20 pointer-events-none">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent"></div>
+</div>
+<div class="max-w-7xl mx-auto px-4 relative">
+<div class="flex flex-col items-center text-center">
+<span class="inline-block px-3 py-1 bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-[0.3em] rounded-full mb-6">Еволюція Культури</span>
+<h1 class="text-5xl md:text-8xl font-bold mb-6 tracking-tight dark:text-white uppercase leading-none">
+                    History of <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-400 italic">Drift Evolution</span>
+</h1>
+<p class="max-w-2xl text-lg opacity-80 font-light leading-relaxed">
+                    Від нелегальних заїздів на гірських перевалах Японії до багатомільйонних професійних арен світу. Шлях контрольованого хаосу.
+                </p>
+</div>
+</div>
+</section>
+<main class="max-w-7xl mx-auto px-4 py-20 relative">
+<div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px timeline-line opacity-30 hidden md:block"></div>
+<div class="space-y-24">
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="md:text-right">
+<span class="text-primary font-bold text-4xl mb-2 block">1960s - 1970s</span>
+<h2 class="text-3xl font-bold mb-4 flex items-center md:justify-end gap-3">
+<span class="hidden md:block material-icons text-primary/40">mountain</span>
+                        Походження в Японії
+                    </h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                        Дрифт зародився на звивистих гірських дорогах Японії, відомих як <span class="text-primary font-semibold italic">"Тоге" (Touge)</span>. Мотоциклісти та водії автомобілів намагалися подолати ці круті повороти за максимально короткий час, що з часом переросло у змагання з майстерності керування заносом.
+                    </p>
+<div class="flex flex-wrap gap-2 md:justify-end">
+<span class="bg-primary/5 border border-primary/20 px-3 py-1 rounded text-xs">Touge</span>
+<span class="bg-primary/5 border border-primary/20 px-3 py-1 rounded text-xs">Rolling Start</span>
+<span class="bg-primary/5 border border-primary/20 px-3 py-1 rounded text-xs">Street Roots</span>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-2 bg-primary/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<img alt="Vintage drift car in Japanese mountains" class="relative rounded-lg grayscale hover:grayscale-0 transition duration-500 shadow-2xl border border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRpnkHszXwwKSXeF4SS6jSuS6E5FPRzZL6VNKAcCGuePVdLMXJItAvMOX9_1AJqa_1YtNnU5W02OkpSPHsHf6QbEQO8JZoLhePw15kCd88R_JVagxflnKfwSYCUmS-6KaXKDcu9vpuSDxWpNVXmDjJ1lZ_uw1JhXLG5xYrK4bcd38hVnuJTTROFLRn3HH6TZRK7_VjiwRMSyuiAMEK56Kh-5u0Chm59PXqs5yW7cn1wOxkNvRiKtOtyGbUcaUFFeXq3HGvGBFaczfJ"/>
+</div>
+</div>
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="order-2 md:order-1 relative group">
+<div class="absolute -inset-2 bg-primary/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<img alt="Drifting silhouette in Tokyo" class="relative rounded-lg shadow-2xl border border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1on6jCrJ61KDFRt2J2G3ynHYpb46dqUtTBgwR2XwH0AlsqiSKujStoLUw_qqj_p1cjHSNTnjs9ogAncrrhbcTG1NmtkEs4kN7o13canps3c1mQfRo_xGWZ4eWYggWiNtTa1K8dTBLHL0KDQwPGKI2Wa0Rr0FReCHcDucTtq5N4Mh0c__IpCBJqBmYPcQ96xmTAvJSIsClWP7m7ez1B7oPSmq9b3qX1Z_Fvi7fzo4PpfxNFVoXFpkMKuH2y7HAm6MGYwRyC9YtdRiU"/>
+</div>
+<div class="order-1 md:order-2">
+<span class="text-primary font-bold text-4xl mb-2 block">1980s</span>
+<h2 class="text-3xl font-bold mb-4 flex items-center gap-3">
+                        Кейічі Цучія: Король Дрифту
+                        <span class="material-icons text-primary/40">workspace_premium</span>
+</h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                        Легендарний пілот, який популяризував дрифт за межами гірських трас. Цучія продемонстрував техніку дрифту на офіційних кільцевих гонках, чим назавжди змінив сприйняття цього стилю водіння. Його знаменита <span class="text-primary font-semibold italic">Toyota AE86 Trueno</span> стала іконою культури.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-primary/5 border border-primary/20 px-3 py-1 rounded text-xs">DK (Drift King)</span>
+<span class="bg-primary/5 border border-primary/20 px-3 py-1 rounded text-xs">Toyota AE86</span>
+<span class="bg-primary/5 border border-primary/20 px-3 py-1 rounded text-xs">Circuit Racing</span>
+</div>
+</div>
+</div>
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="md:text-right">
+<span class="text-primary font-bold text-4xl mb-2 block">2001 - Present</span>
+<h2 class="text-3xl font-bold mb-4 flex items-center md:justify-end gap-3">
+<span class="hidden md:block material-icons text-primary/40">stadium</span>
+                        Глобальний розквіт (D1GP &amp; Formula D)
+                    </h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                        У 2001 році в Японії було створено першу професійну серію — <span class="text-primary font-semibold italic">D1 Grand Prix</span>. Незабаром дрифт підкорив США з Formula Drift та Європу. З нелегального хобі він перетворився на високотехнологічний спорт з болідами потужністю понад 1000 к.с.
+                    </p>
+<div class="flex flex-wrap gap-2 md:justify-end">
+<span class="bg-primary/5 border border-primary/20 px-3 py-1 rounded text-xs">D1GP</span>
+<span class="bg-primary/5 border border-primary/20 px-3 py-1 rounded text-xs">Formula Drift</span>
+<span class="bg-primary/5 border border-primary/20 px-3 py-1 rounded text-xs">Tandem Battles</span>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-2 bg-primary/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+<img alt="Modern pink drift car in smoke" class="relative rounded-lg shadow-2xl border border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTZSOpY5H2XpjDV75wgnTWvq6h5uABaAq3pwWTYFJv2AHH2qcry2LZCQS75TZ-XECgRbQHBW3WUjwCg_y39cO023ZbiQkNxlYZIUFmo3kCBdVD-Wp-u6YWuN_-I5ldHG-b_rp9TNeetT3cUyz0adDMAZ4RMHMApYt9Cn-vtaI7va86DCIhYSaHc-FQGpe87dg3rf23D5FIZGOBxk-7yRTLUe32E5DRUp0QVY2kIiStCGh_GXteF9oS9Pf7V20vQBIknVmc22ZqObsz"/>
+</div>
+</div>
+</div>
+</main>
+<section class="py-20 bg-primary/5">
+<div class="max-w-7xl mx-auto px-4">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center">
+<div class="text-4xl font-bold text-primary mb-2">1000+</div>
+<div class="text-xs uppercase tracking-widest opacity-60">Horsepower</div>
+</div>
+<div class="text-center">
+<div class="text-4xl font-bold text-primary mb-2">60+</div>
+<div class="text-xs uppercase tracking-widest opacity-60">Countries</div>
+</div>
+<div class="text-center">
+<div class="text-4xl font-bold text-primary mb-2">90°</div>
+<div class="text-xs uppercase tracking-widest opacity-60">Angle limit</div>
+</div>
+<div class="text-center">
+<div class="text-4xl font-bold text-primary mb-2">150+</div>
+<div class="text-xs uppercase tracking-widest opacity-60">Events Yearly</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 max-w-7xl mx-auto px-4">
+<div class="glass-card rounded-3xl p-8 md:p-16 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="text-8xl font-black">DRIFT</span>
+</div>
+<div class="max-w-3xl">
+<h2 class="text-4xl font-bold mb-6 italic">Більше ніж просто спорт. <br/><span class="text-primary">Це стиль життя.</span></h2>
+<p class="text-lg opacity-70 mb-8 leading-relaxed">
+                    Дрифт — це єдиний вид автоспорту, де перемога залежить не тільки від швидкості, а й від естетики, диму, близькості до суперника та "кута" заносу. Це танець на межі можливостей фізики та майстерності пілота.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="bg-primary hover:bg-pink-600 text-white font-bold py-4 px-8 rounded flex items-center justify-center gap-2 transition-all transform hover:-translate-y-1" href="#">
+                        Стати частиною ВФДД
+                        <span class="material-icons">arrow_forward</span>
+</a>
+<a class="border border-primary/40 hover:bg-primary/10 py-4 px-8 rounded flex items-center justify-center gap-2 transition-all" href="#">
+                        Переглянути легенди
+                    </a>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-slate-100 dark:bg-black border-t border-slate-200 dark:border-slate-800 py-16 px-4 relative z-10">
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+<div class="col-span-2">
+<div class="flex items-center space-x-2 mb-6">
+<span class="font-display font-bold text-3xl italic text-primary">VFDD</span>
+</div>
+<p class="text-slate-500 max-w-sm mb-8">
+                    Офіційна платформа українського дрифту. Створюємо історію автоспорту разом з 2015 року.
+                </p>
+<div class="flex space-x-4">
+<a class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:opacity-80 transition-opacity" href="#">
+<i class="material-icons text-sm">facebook</i>
+</a>
+<a class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:opacity-80 transition-opacity" href="#">
+<i class="material-icons text-sm">photo_camera</i>
+</a>
+<a class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:opacity-80 transition-opacity" href="#">
+<i class="material-icons text-sm">play_arrow</i>
+</a>
+</div>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-sm uppercase tracking-widest">Посилання</h5>
+<ul class="space-y-4 text-slate-500 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Про нас</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Правила серії</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Магазин</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Контакти</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-sm uppercase tracking-widest">Контакти</h5>
+<ul class="space-y-4 text-slate-500 text-sm">
+<li class="flex items-center gap-2">
+<span class="material-icons text-xs">email</span>
+                        info@vfdd.org.ua
+                    </li>
+<li class="flex items-center gap-2">
+<span class="material-icons text-xs">location_on</span>
+                        Київ, Чайка
+                    </li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-slate-500 text-xs">
+            © 2024 WORLD OF DRIFT (VFDD). Усі права захищені.
+        </div>
+</footer>
+
+</body></html>
