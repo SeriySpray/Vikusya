@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Історія Дрифту - Манга</title>
+    <title>Історія Дрифту - DRIFT</title>
     <meta name="description" content="Історія дрифту — від гірських доріг Японії до міжнародних чемпіонатів. Манга-стиль.">
     <link rel="icon" href="sakura.png">
     <link rel="stylesheet" href="style.css">
@@ -51,13 +51,13 @@
         }
 
         body {
-            background-color: #1a1a1a;
+            background-color: #f9f9f9;
             color: #000;
             font-family: 'Neucha', cursive, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 10px;
+            padding: 24px 10px;
         }
 
         .manga-page {
@@ -66,11 +66,12 @@
             max-width: 1000px;
             padding: 20px;
             margin-bottom: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-auto-rows: minmax(250px, auto);
             gap: 12px;
+            border: 4px solid #000;
         }
 
         .panel {
@@ -199,7 +200,7 @@
     </div>
 
     <!-- ==================== Main Content ==================== -->
-    <main>
+    <main class="w-full flex flex-col items-center">
         <!-- СТОРІНКА 1: Початок -->
         <div class="manga-page">
             <!-- Фрейм 1 -->
@@ -396,7 +397,7 @@
                 </div>
             </div>
 
-            <!-- Фрейм 22 -->
+            <!-- Фрейter 22 -->
             <div class="panel span-1">
                 <img src="https://loremflickr.com/300/300/engine/all?lock=18" alt="Engine">
                 <div class="screentone"></div>
@@ -441,6 +442,18 @@
             </div>
         </div>
     </main>
+
+    <footer class="flex flex-col md:flex-row justify-between items-center px-10 py-12 w-full bg-black text-white font-headline-md text-xs tracking-widest border-t-4 border-white mt-10 z-20 relative">
+        <p class="text-zinc-300">
+            ©2026 DRIFT_KORS 
+        </p>
+        <div class="flex gap-8">
+            <a class="text-white underline decoration-2 underline-offset-4 hover:italic hover:text-zinc-100 transition-all hover:translate-y-[-2px]" href="#">Контакти</a>
+        </div>
+    </footer>
+
+    <!-- Головний JS-файл -->
+    <script src="main.js"></script>
 
 </body>
 </html>
