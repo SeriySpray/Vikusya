@@ -2074,6 +2074,68 @@ input:where([type='file']):focus {
   /* Відключаємо нахил для активної кнопки, щоб не ламати фігуру */
 }
 
+/* Mobile Navigation Drawer */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 2rem;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav-link {
+  font-family: 'Epilogue', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-decoration: none;
+  font-style: italic;
+  text-transform: uppercase;
+  padding: 0.8rem 1.5rem;
+  border: 3px solid #ffffff;
+  background-color: #000000;
+  transform: skewX(-10deg);
+  transition: all 0.2s ease;
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 6px 6px 0px #ffffff;
+}
+
+.mobile-nav-link:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: skewX(-10deg) translate(-2px, -2px);
+  box-shadow: 8px 8px 0px #ffffff;
+}
+
+.mobile-nav-link.active {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: none;
+  transform: skewX(-10deg) translate(2px, 2px);
+}
+
+/* Hamburger button logic for desktop/mobile */
+@media (max-width: 1024px) {
+  .nav-menu {
+    display: none;
+  }
+}
+
 /* Підтримка темної теми (Dark Mode) */
 .dark .nav-link {
   color: #ffffff;

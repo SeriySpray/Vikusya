@@ -102,7 +102,7 @@
                 DRIFT
             </div>
 
-            <nav class="nav-menu flex gap-4">
+            <nav class="nav-menu hidden lg:flex gap-4">
                 <a class="nav-link active" href="index.html">ГОЛОВНА</a>
                 <a class="nav-link" href="history.html">ІСТОРІЯ</a>
                 <a class="nav-link" href="techniques.html">ТЕХНІКИ</a>
@@ -112,11 +112,23 @@
             </nav>
 
             <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:scale-110 transition-all block lg:hidden text-3xl" id="mobile-menu-open">menu</span>
                 <span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:scale-110 transition-all">directions_car</span>
                 <span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:scale-110 transition-all">person</span>  
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <span class="material-symbols-outlined absolute top-8 right-8 text-white text-4xl cursor-pointer" id="mobile-menu-close">close</span>
+        <a class="mobile-nav-link active" href="index.html">ГОЛОВНА</a>
+        <a class="mobile-nav-link" href="history.html">ІСТОРІЯ</a>
+        <a class="mobile-nav-link" href="techniques.html">ТЕХНІКИ</a>
+        <a class="mobile-nav-link" href="garage.html">ГАРАЖ</a>
+        <a class="mobile-nav-link" href="vocabulary.html">СЛОВНИК</a>
+        <a class="mobile-nav-link" href="registration.html">РЕЄСТРАЦІЯ</a>
+    </div>
 
     <!-- ==================== Main Content ==================== -->
     <main class="relative min-h-screen pb-10">
@@ -181,7 +193,7 @@
 
     <!-- ==================== Footer ==================== -->
     <footer class="flex flex-col md:flex-row justify-between items-center px-10 py-12 w-full bg-black text-white font-headline-md text-xs tracking-widest [clip-path:polygon(0_15%,100%_0,100%_100%,0_100%)] border-t-4 border-white mt-10 z-20 relative">
-        <p >
+        <p class="text-zinc-300">
             ©2026 DRIFT_KORS 
         </p>
         <div class="flex gap-8">
@@ -191,10 +203,6 @@
 
     <!-- Головний JS-файл -->
     <script src="main.js"></script>
-
-</body>
-</html>
-
 
 </body>
 </html>

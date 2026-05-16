@@ -9,11 +9,54 @@
 document.addEventListener('DOMContentLoaded', () => {
     initHeroParallax();
     initTitleHoverEffect();
+    initMobileMenu();
 });
 
 // ============================================================
 // Функції
 // ============================================================
+
+/**
+ * Керування мобільним меню.
+ */
+function initMobileMenu() {
+    const openBtn = document.getElementById('mobile-menu-open');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    const links = document.querySelectorAll('.mobile-nav-link');
+
+    if (!openBtn || !overlay) {
+        console.warn('Mobile menu elements not found:', { openBtn, overlay });
+        return;
+    }
+
+    const openMenu = () => {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeMenu = () => {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    openBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openMenu();
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMenu);
+    }
+
+    links.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeMenu();
+    });
+}
 
 /**
  * Ефект паралаксу для Hero-зображення на головній сторінці.
