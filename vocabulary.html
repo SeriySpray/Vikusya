@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Словник основних термінів дрифту: Фурідаші, Кліппінг-поїнт, Кут та багато іншого. Станьте експертом у світі дрифту.">
     <title>Словник Дрифту | Manga Style</title>
+    <link rel="icon" href="sakura.png">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="stylesheet" href="style.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,700;0,800;0,900;1,900&family=Be+Vietnam+Pro:wght@400;500&family=Space+Grotesk:wght@700&family=Montserrat:ital,wght@0,500;0,800;1,800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -139,7 +142,7 @@
                 DRIFT
             </div>
 
-            <nav class="nav-menu flex gap-4">
+            <nav class="nav-menu hidden lg:flex gap-4">
                 <a class="nav-link" href="index.html">ГОЛОВНА</a>
                 <a class="nav-link" href="history.html">ІСТОРІЯ</a>
                 <a class="nav-link" href="techniques.html">ТЕХНІКИ</a>
@@ -149,11 +152,23 @@
             </nav>
 
             <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:scale-110 transition-all block lg:hidden text-3xl" id="mobile-menu-open">menu</span>
                 <span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:scale-110 transition-all">directions_car</span>
                 <span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:scale-110 transition-all">person</span>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <span class="material-symbols-outlined absolute top-8 right-8 text-white text-4xl cursor-pointer" id="mobile-menu-close">close</span>
+        <a class="mobile-nav-link" href="index.html">ГОЛОВНА</a>
+        <a class="mobile-nav-link" href="history.html">ІСТОРІЯ</a>
+        <a class="mobile-nav-link" href="techniques.html">ТЕХНІКИ</a>
+        <a class="mobile-nav-link" href="garage.html">ГАРАЖ</a>
+        <a class="mobile-nav-link active" href="vocabulary.html">СЛОВНИК</a>
+        <a class="mobile-nav-link" href="registration.html">РЕЄСТРАЦІЯ</a>
+    </div>
 
     <main class="max-w-5xl mx-auto px-4 pb-20 mt-10">
         
