@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Словник Дрифту | Manga Style</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,700;0,900;1,900&family=Space+Grotesk:wght@700&family=Montserrat:ital,wght@0,500;0,800;1,800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'manga': ['Montserrat', 'sans-serif'],
+                        'title': ['Epilogue', 'sans-serif'],
+                        'action': ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            background-image: radial-gradient(#000 1px, transparent 1px);
+            background-size: 20px 20px;
+            /* Ефект скрінтону (крапочок), характерний для манґи */
+        }
+
+        /* Стилі панелей-кадрів */
+        .manga-panel {
+            box-shadow: 8px 8px 0px #000;
+            transition: transform 0.2s ease;
+        }
+        .manga-panel:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
+        .manga-panel-reverse:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* Хмаринки діалогів */
+        .bubble {
+            position: relative;
+            border: 4px solid #000;
+            background: #fff;
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 6px 6px 0px #000;
+        }
+        
+        /* Хвостик хмаринки зліва */
+        .bubble-left::after {
+            content: '';
+            position: absolute;
+            bottom: 20%;
+            left: -20px;
+            border-width: 15px 25px 15px 0;
+            border-style: solid;
+            border-color: transparent #000 transparent transparent;
+            display: block;
+            width: 0;
+        }
+        .bubble-left::before {
+            content: '';
+            position: absolute;
+            bottom: 20%;
+            left: -13px;
+            border-width: 15px 25px 15px 0;
+            border-style: solid;
+            border-color: transparent #fff transparent transparent;
+            display: block;
+            width: 0;
+            z-index: 1;
+        }
+
+        /* Хвостик хмаринки справа */
+        .bubble-right {
+            background: #000;
+            color: #fff;
+        }
+        .bubble-right::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: -20px;
+            border-width: 15px 0 15px 25px;
+            border-style: solid;
+            border-color: transparent transparent transparent #000;
+            display: block;
+            width: 0;
+        }
+
+        /* Лінії швидкості на фоні */
+        .speed-lines {
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 40px,
+                rgba(0, 0, 0, 0.1) 40px,
+                rgba(0, 0, 0, 0.1) 42px
+            );
+            transform: skewX(-15deg);
+        }
+
+        /* Стилізація звукових ефектів */
+        .sfx {
+            text-shadow: 3px 3px 0px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+        }
+    </style>
+</head>
+
+<body class="text-black font-manga overflow-x-hidden pt-24">
+
+    <header class="bg-white fixed w-full top-0 z-50 border-b-4 border-black shadow-[0_8px_0px_0px_rgba(0,0,0,1)]">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto gap-4">
+            <div class="text-3xl font-black italic tracking-widest uppercase text-black font-title">
+                DRIFT_KORS
+            </div>
+
+            <nav class="flex gap-4 md:gap-6 font-bold text-sm md:text-base uppercase">
+                <a class="hover:underline decoration-4 underline-offset-4" href="index.html">Головна</a>
+                <a class="hover:underline decoration-4 underline-offset-4" href="history.html">Історія</a>
+                <a class="hover:underline decoration-4 underline-offset-4" href="techniques.html">Техніки</a>
+                <a class="hover:underline decoration-4 underline-offset-4" href="garage.html">Гараж</a>
+                <a class="underline decoration-4 underline-offset-4 bg-black text-white px-2 py-1 transform -skew-x-12" href="vocabulary.html">Словник</a>
+                <a class="hover:underline decoration-4 underline-offset-4" href="registration.html">Реєстрація</a>
+            </nav>
+
+            <div class="flex items-center gap-4 hidden md:flex">
+                <span class="material-symbols-outlined text-black cursor-pointer hover:scale-125 transition-transform text-3xl">directions_car</span>
+                <span class="material-symbols-outlined text-black cursor-pointer hover:scale-125 transition-transform text-3xl">account_circle</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 pb-20 mt-10">
+        
+        <section class="relative mb-20 flex justify-center">
+            <div class="absolute inset-0 speed-lines -z-10 opacity-50"></div>
+            <div class="bg-black text-white p-8 md:p-12 border-4 border-black transform -skew-x-6 shadow-[12px_12px_0px_0px_rgba(255,255,255,1),16px_16px_0px_0px_rgba(0,0,0,1)]">
+                <h1 class="font-title text-4xl md:text-6xl font-black uppercase italic tracking-widest text-center">Словник Дрифту</h1>
+            </div>
+        </section>
+
+        <div class="flex flex-col gap-10 mb-20">
+            <div class="flex items-start gap-6 max-w-2xl">
+                <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-white border-4 border-black manga-panel overflow-hidden rounded-md">
+                    <img class="w-full h-full object-cover grayscale contrast-125" alt="Учень" src="https://images.unsplash.com/photo-1541443131876-44b03de101c5?q=80&w=300&auto=format&fit=crop"/>
+                </div>
+                <div class="bubble bubble-left">
+                    <p class="font-bold text-lg md:text-xl italic">"ГЕЙ, СЕНСЕЙ! ПРОФІ ПОСТІЙНО ГОВОРЯТЬ ПРО <span class="font-black bg-black text-white px-1">ФУРІДАШІ</span>. ЩО ЦЕ ТАКЕ?"</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-6 max-w-3xl self-end flex-row-reverse relative">
+                <div class="absolute -top-10 -left-10 font-action text-5xl font-black italic text-black sfx z-10 transform -rotate-12">ВЗУУУХ!</div>
+                
+                <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 border-4 border-black manga-panel manga-panel-reverse overflow-hidden rounded-md">
+                    <img class="w-full h-full object-cover grayscale contrast-150" alt="Профі" src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=300&auto=format&fit=crop"/>
+                </div>
+                <div class="bubble bubble-right">
+                    <h3 class="font-title text-2xl mb-2 uppercase italic text-gray-300">ФУРІДАШІ (Furidashi)</h3>
+                    <p class="text-base md:text-lg leading-relaxed">Момент ініціації. Це агресивний ривок, коли ти різко зриваєш зчеплення коліс з асфальтом і кидаєш машину в занос. Без чистого і різкого Фурідаші весь твій заїзд — сміття.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-10 mb-20 relative">
+            <div class="absolute inset-0 border-y-4 border-black speed-lines -z-20 h-40 top-1/2 -translate-y-1/2 w-[150vw] -left-[25vw]"></div>
+            
+            <div class="flex items-start gap-6 max-w-2xl bg-white p-4 border-4 border-black shadow-[8px_8px_0_#000]">
+                <div class="w-20 h-20 md:w-28 md:h-28 flex-shrink-0 border-4 border-black manga-panel overflow-hidden">
+                    <img class="w-full h-full object-cover grayscale contrast-125" alt="Учень" src="https://images.unsplash.com/photo-1541443131876-44b03de101c5?q=80&w=300&auto=format&fit=crop"/>
+                </div>
+                <div class="bubble border-0 shadow-none p-0">
+                    <p class="font-bold text-lg md:text-xl italic">"ЗРОЗУМІВ. ТОБТО КОЛИ Я ВЖЕ В ЗАНОСІ, МЕНІ ПРОСТО ЦІЛИТИСЯ У ВНУТРІШНІЙ КУТ ПОВОРОТУ?"</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-6 max-w-3xl self-end flex-row-reverse relative">
+                <div class="absolute -bottom-8 -right-4 font-action text-4xl font-black italic text-black sfx z-10 transform rotate-12">СКРІІІІ!</div>
+                <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 border-4 border-black manga-panel manga-panel-reverse overflow-hidden rounded-full">
+                    <img class="w-full h-full object-cover grayscale contrast-150" alt="Профі" src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=300&auto=format&fit=crop"/>
+                </div>
+                <div class="bubble bubble-right">
+                    <h3 class="font-title text-2xl mb-2 uppercase italic text-gray-300">КЛІППІНГ-ПОЇНТ (Clipping Point)</h3>
+                    <p class="text-base md:text-lg leading-relaxed">Не просто в будь-який кут, малий. Ми шукаємо «Кліппінг-поїнти» — конкретні маркери на трасі (конуси або стіни), до яких ніс або хвіст твоєї машини має наблизитися <span class="underline decoration-2">максимально впритул</span> без удару. Точність — це все.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-10 mb-20">
+            <div class="flex items-start gap-6 max-w-2xl">
+                <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-white border-4 border-black manga-panel overflow-hidden">
+                    <img class="w-full h-full object-cover grayscale contrast-125" alt="Учень" src="https://images.unsplash.com/photo-1541443131876-44b03de101c5?q=80&w=300&auto=format&fit=crop"/>
+                </div>
+                <div class="bubble bubble-left">
+                    <p class="font-bold text-lg md:text-xl italic">"А ЯК ЩОДО КУТА? БІЛЬШИЙ КУТ ДАЄ БІЛЬШЕ БАЛІВ ЗА СТИЛЬ, ТАК?"</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-6 max-w-3xl self-end flex-row-reverse relative">
+                <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 border-4 border-black manga-panel manga-panel-reverse overflow-hidden">
+                    <img class="w-full h-full object-cover grayscale contrast-150" alt="Профі" src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=300&auto=format&fit=crop"/>
+                </div>
+                <div class="bubble bubble-right">
+                    <h3 class="font-title text-2xl mb-2 uppercase italic text-gray-300">КУТ (Angle)</h3>
+                    <p class="text-base md:text-lg leading-relaxed">Кут — це градус заносу машини відносно напрямку траси. Великий кут (майже 90 градусів) виглядає неймовірно ефектно, але якщо переборщити — тебе розверне (Spin out). Це лезо ножа між стилем та втратою контролю.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-20 flex justify-center">
+            <div class="bg-white border-8 border-black p-8 md:p-14 text-center transform rotate-1 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] max-w-3xl w-full">
+                <h2 class="font-title text-3xl md:text-5xl font-black uppercase italic mb-8">Готовий палити гуму?</h2>
+                <a href="garage.html" class="inline-block bg-black text-white px-8 py-4 md:px-12 md:py-6 font-action text-xl md:text-2xl font-bold uppercase italic border-4 border-black hover:bg-white hover:text-black hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                    ВИЇХАТИ НА ТРЕК
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-black text-white border-t-8 border-white p-8 md:p-12 mt-20 relative overflow-hidden">
+        <div class="absolute inset-0 speed-lines opacity-20 -z-0 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center relative z-10 font-title font-bold tracking-widest text-sm uppercase gap-6">
+            <div class="bg-white text-black px-4 py-2 transform -skew-x-12 font-black text-xl">
+                DRIFT_KORS ©2026
+            </div>
+            <div class="flex gap-8">
+                <a class="hover:text-gray-400 hover:italic transition-all underline underline-offset-4" href="#">Правила</a>
+                <a class="hover:text-gray-400 hover:italic transition-all underline underline-offset-4" href="#">Контакти</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

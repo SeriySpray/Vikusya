@@ -1,199 +1,44 @@
-/* --- Загальні стилі та фон --- */
-.drift-body {
-  background-color: #420d0d;
-  /* Темно-бордовий/темно-червоний, як в дизайні */
-  color: #fff;
-  /* Глобальний білий текст */
-  font-family: Arial, sans-serif;
-  /* Чіткий шрифт без засічок */
-  margin: 0;
-  overflow-x: hidden;
-  /* Щоб ієрогліфи не створювали смуги прокрутки */
-}
-
-/* --- Навігація --- */
-.main-header {
-  padding: 20px 0;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-end;
-  /* Вирівнювання вправо, як в дизайні */
-  padding: 0 50px;
-}
-
+/* Контейнер навігації */
 .nav-menu {
   display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  gap: 30px;
-}
-
-.nav-menu li a {
-  text-decoration: none;
-  color: #fff;
-  /* Білий текст, замість рожевого */
-  font-weight: bold;
-  font-size: 16px;
-  transition: opacity 0.3s;
-}
-
-.nav-menu li a:hover {
-  opacity: 0.7;
-  /* Тонкий ефект наведення */
-}
-
-/* --- Оновлений стиль для підменю --- */
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #3d0e0e;
-  /* Темніший червоний, замість білого */
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  min-width: 180px;
-  z-index: 100;
-}
-
-.nav-menu .dropdown:hover .submenu {
-  display: block;
-}
-
-.submenu li a {
-  color: #fff;
-  /* Білий текст */
-}
-
-.submenu li a:hover {
-  background-color: #4f1212;
-}
-
-/* --- Логотип --- */
-.header-elements {
-  max-width: 1200px;
-  margin: 20px auto 0;
-  padding: 0 50px;
-}
-
-.logo-area {
-  display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 1rem; /* Відстань між посиланнями */
 }
 
-.logo-symbol {
-  height: 30px;
-  width: 30px;
-  background-image: url('data:image/svg+xml;utf8,<svg ...>Geometric Symbol SVG</svg>');
-  /* Встав сюди свій SVG символ */
-  background-size: contain;
-  background-repeat: no-repeat;
-  /* Альтернатива: додаємо геометричний символLOGO_SYMBOL_URL_HERE */
-}
-
-.logo-text {
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-}
-
-/* --- Головний заголовок 'WELCOME' --- */
-.neon-title {
-  font-size: 100px;
-  /* Масивний, як в дизайні */
-  font-weight: 900;
-  font-style: italic;
-  /* Нахилений */
+/* Базовий стиль для всіх посилань у меню */
+.nav-link {
+  font-family: 'Epilogue', sans-serif;
   text-transform: uppercase;
-  line-height: 1;
-  margin: 60px 0 40px;
-  color: #fff;
-  /* Білий текст */
-  text-align: center;
-  /* Біле неонове світіння, замість рожевого */
-  text-shadow:
-    0 0 5px #6b2424,
-    0 0 10px #601a1a,
-    0 0 20px #ffffff,
-    0 0 40px #fff,
-    0 0 80px #5e0000;
-  letter-spacing: -2px;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: #000000; /* Чорний текст для світлої теми */
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
 }
 
-/* --- Опис --- */
-.subtitle {
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 60px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #fff;
-  /* Білий текст, замість яскраво-рожевого */
-  text-align: center;
+/* Ефект нахилу при наведенні миші */
+.nav-link:hover {
+  transform: skewX(-12deg);
 }
 
-
-
-/* --- Контейнер контенту та графіка --- */
-.content-wrapper {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 50px 200px;
-  /* Додатковий padding, щоб силует гейші був видимий */
-  /* Силуети та сліди шин як фонові зображення */
-  background-image:
-    url('URL_TO_RONIN_SILHOUETTE_HERE'),
-    /* Ронін зверху */
-    url('URL_TO_GEISHA_SILHOUETTE_HERE'),
-    /* Гейша знизу */
-    url('URL_TO_TIRE_MARKS_HERE');
-  /* Фоновий візерунок */
-  background-position:
-    top center,
-    bottom left,
-    center;
-  background-repeat: no-repeat, no-repeat, repeat;
-  background-size: contain, contain, cover;
+/* Спеціальний стиль для активної сторінки (Словник) */
+.nav-link.active {
+  background-color: #000000;
+  color: #ffffff;
+  /* Робить скошені краї, як у вашому коді */
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); 
+}
+.nav-link.active:hover {
+  transform: none; /* Відключаємо нахил для активної кнопки, щоб не ламати фігуру */
 }
 
-/* --- Таблиця --- */
-.drift-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 60px 0;
-  font-family: Arial, sans-serif;
-  background-color: #3d0e0e;
-  /* Темніший червоний, замість світло-сірого */
+/* Підтримка темної теми (Dark Mode) */
+.dark .nav-link {
+  color: #ffffff;
 }
-
-.drift-table th,
-.drift-table td {
-  border: 1px solid #7a1d1d;
-  /* Тонка рамка темно-червоного кольору */
-  padding: 12px;
-  text-align: left;
-  color: #fff;
-  /* Білий текст */
-}
-
-.drift-table th {
-  background-color: #6e1a1a;
-  /* Світліший червоний, але не рожевий */
-  font-weight: bold;
-}
-
-.drift-table tr:hover {
-  background-color: #4f1212;
-  /* Ефект наведення темно-червоного кольору */
-}
+.dark .nav-link.active {
+  background-color: #ffffff;
+  color: #000000;
+}ф

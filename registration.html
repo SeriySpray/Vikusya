@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Реєстрація - Drift</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/dd/7d/53/dd7d53ccd16963688433fd4be9f8055c.jpg">
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,700;0,800;0,900;1,900&family=Be+Vietnam+Pro:wght@400;500&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#5e5e5e",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e2e2e2",
+                        "primary": "#000000",
+                        "background": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        // ... (інші кольори залишені базовими для лаконічності)
+                    },
+                    fontFamily: {
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-md": ["Epilogue"],
+                        "headline-xl": ["Epilogue"],
+                        "label-bold": ["Space Grotesk"]
+                    },
+                    fontSize: {
+                        "body-lg": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-bold": ["13px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-xl": ["56px", {"lineHeight": "1.0", "letterSpacing": "-0.05em", "fontWeight": "900"}],
+                        "headline-lg": ["36px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .manga-panel { clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 98%); }
+        .manga-panel-reverse { clip-path: polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%); }
+        .speed-lines { background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 11px); }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden pt-24">
+    <header class="bg-white dark:bg-black fixed w-full top-0 left-0 z-50 border-b-4 border-black dark:border-white [clip-path:polygon(0_0,100%_0,98%_100%,0_92%)] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div class="flex justify-between items-center w-full px-6 py-4 max-w-[1440px] mx-auto">
+            
+            <div class="text-4xl font-black italic tracking-widest text-black dark:text-white uppercase drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                DRIFT
+            </div>
+
+            <nav class="nav-menu flex gap-4">
+                <a class="nav-link" href="index.html">ГОЛОВНА</a>
+                <a class="nav-link" href="history.html">ІСТОРІЯ</a>
+                <a class="nav-link" href="techniques.html">ТЕХНІКИ</a>
+                <a class="nav-link" href="garage.html">ГАРАЖ</a>
+                <a class="nav-link" href="vocabulary.html">СЛОВНИК</a>
+                <a class="nav-link active" href="registration.html">РЕЄСТРАЦІЯ</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:scale-110 transition-all">directions_car</span>
+                <span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:scale-110 transition-all">person</span>  
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen relative flex flex-col md:flex-row items-stretch">
+        
+        <div class="absolute inset-0 speed-lines opacity-40 pointer-events-none"></div>
+
+        <div class="relative w-full md:w-5/12 bg-black min-h-[409px] overflow-hidden [clip-path:polygon(0_0,100%_0,90%_100%,0_100%)] z-10">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)]"></div>
+            <img class="w-full h-full object-cover grayscale brightness-100 contrast-100 mix-blend-screen opacity-100 scale-100 origin-bottom-right" alt="Ключі від авто" src="unnamed.png"/>
+            
+            <div class="absolute bottom-20 left-10 right-10">
+                <div class="bg-white text-black p-4 inline-block mb-4 [clip-path:polygon(0_0,100%_0,95%_100%,5%_100%)] shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)]">
+                    <h2 class="font-headline-md italic uppercase tracking-tighter">Хапай ключі!</h2>
+                </div>
+                <p class="font-label-bold text-white uppercase tracking-widest bg-black/50 p-2 border-l-4 border-white">
+                    І нумо покоряти світ дрифту
+                </p>
+            </div>
+        </div>
+
+        <div class="w-full md:w-7/12 flex flex-col justify-center px-6 md:px-20 py-12 relative z-0">
+            
+            <div class="mb-12 relative">
+                <div class="absolute -left-12 top-0 w-24 h-24 border-8 border-black opacity-10 [clip-path:polygon(50%_0%,100%_50%,50%_100%,0%_50%)]"></div>
+                <!-- Додаємо id="main-title", щоб JS міг за нього "вхопитися" -->
+<h1 id="main-title" class="font-headline-xl text-primary uppercase italic mb-2 drop-shadow-[6px_6px_0px_rgba(0,0,0,0.1)] transition-transform duration-300 w-fit origin-left cursor-pointer">
+    Отримати ліцензію пілота
+</h1>
+
+
+                <div class="h-2 w-48 bg-primary [clip-path:polygon(0_0,100%_0,95%_100%,0_100%)]"></div>
+            </div>
+
+            <form class="space-y-10 max-w-xl pb-10">
+                
+                <div class="relative group">
+                    <div class="absolute -top-4 -left-2 bg-black text-white px-3 py-1 font-label-bold text-[10px] uppercase tracking-tighter [clip-path:polygon(0_0,100%_0,90%_100%,0_100%)]">
+                        Твоє прізвисько
+                    </div>
+                    <input class="w-full bg-transparent border-b-4 border-black font-headline-md italic uppercase placeholder:text-surface-variant focus:outline-none focus:border-surface-tint py-4 transition-colors" placeholder="введи свій псевдонім..." type="text"/>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -top-4 -left-2 bg-black text-white px-3 py-1 font-label-bold text-[10px] uppercase tracking-tighter [clip-path:polygon(0_0,100%_0,90%_100%,0_100%)]">
+                        Пароль для доступу в гараж
+                    </div>
+                    <input class="w-full bg-transparent border-b-4 border-black font-headline-md italic uppercase placeholder:text-surface-variant focus:outline-none focus:border-surface-tint py-4 transition-colors" placeholder="••••••••" type="password"/>
+                </div>
+
+                <div class="space-y-4">
+                    <label class="font-label-bold uppercase flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">directions_car</span>
+                        Вибір твого першого авто
+                    </label>
+                    <div class="grid grid-cols-3 gap-4">
+                        <label class="cursor-pointer group">
+                            <input class="sr-only peer" name="car" type="radio"/>
+                            <div class="relative border-4 border-black p-2 peer-checked:bg-black peer-checked:text-white transition-all transform hover:skew-x-[-3deg] manga-panel">
+                                <img class="w-full aspect-square object-cover grayscale mb-2 peer-checked:invert" alt="AE86" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiQMnZTcq23IOX8ap02VfNNlx53S3EdRpLYlx32dQA9fXtkJtinQx9mnMMOvsX8u3rLQ7VT4oLvvTGQFvAKDbBSE4_7Q2_q0fnfJe7tVJcxmUQziNcyGfu0xe5sijSJ0sYSJuLhaMUCAIachJc-BpZFBxT4jxuUTMWd-0fUSmX4dmPkIYJ6Asj7_nXbpURrRYnn3fjjCm99a82uckjc04JHh2N8LqOfSt_gKQ_Z4EVkghi5762OkeX5D6S6xh3wAdnoX4tDvUhncB1"/>
+                                <span class="font-label-bold text-[10px] block text-center">AE86_SPRINTER</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group">
+                            <input checked class="sr-only peer" name="car" type="radio"/>
+                            <div class="relative border-4 border-black p-2 bg-white peer-checked:bg-black peer-checked:text-white transition-all transform hover:skew-x-[-3deg] manga-panel-reverse">
+                                <img class="w-full aspect-square object-cover grayscale mb-2 peer-checked:invert" alt="S15" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm_R8P3qN6eOfjuZzNq2sOzkc_VrQSRu-5AyYAa5hpj_FB4_H-ox8CEJUnjQD9fEkhp493zIHcHLc8pbLsOwdrekAFTyJa2hOtTZjhDS5RIddJWN9lvPBL-ASoHP1eoX-DuIgsupE7WsFIwmPgrqbiEMP2s-9jndyevYaoe2HYQ1PhVRSxonn5PFePjp17wM77FzvsnlHu57aOU86Ya9m9i6VadWyEPNHBMvqDJweaiOed3PehwxpmpOrnootIojAQmVNXJZfWWtQT"/>
+                                <span class="font-label-bold text-[10px] block text-center">S15_SILVIA</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group">
+                            <input class="sr-only peer" name="car" type="radio"/>
+                            <div class="relative border-4 border-black p-2 peer-checked:bg-black peer-checked:text-white transition-all transform hover:skew-x-[-3deg] manga-panel">
+                                <img class="w-full aspect-square object-cover grayscale mb-2 peer-checked:invert" alt="RX7" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKjg-iDV4TjBjCU7l5zV0bUKPZ6xQE0bLaNKV0MCFxUyca4GaOS0Tn3TOQPziUoxK2Y_HDcyh1p38WFEgeL6wZcEPlwihWpqhCBpErJlk-LWkiwkc2D6YGB9jpgNJlfduET9SkkPN4nl9tcSgQjwjZA3q69HjhqBFi29sioheTyYSPBjTi9vZPl-rCvbIpJbCtQ9LkgFjOfCVFOx1ee6HzXYOC3GgVQd3s7R4DknZE1fgN3ZKJlD6P22KWHl3jXEQQNX6bFysLm59j"/>
+                                <span class="font-label-bold text-[10px] block text-center">RX7_SPIRIT</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="pt-8">
+                    <button class="group relative w-full bg-black text-white py-6 font-headline-md italic uppercase tracking-widest [clip-path:polygon(0%_15%,5%_0%,100%_5%,95%_100%,0%_85%)] shadow-[12px_12px_0px_0px_rgba(0,0,0,0.2)] hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                        <span class="relative z-10">Поїхали!</span>
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-20 speed-lines transition-opacity"></div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="flex flex-col md:flex-row justify-between items-center px-10 py-12 w-full bg-black text-white font-headline-md text-xs tracking-widest [clip-path:polygon(0_15%,100%_0,100%_100%,0_100%)] border-t-4 border-white mt-10">
+        <div class="mb-4 md:mb-0">
+            ©2026 DRIFT_KORS 
+        </div>
+        <div class="flex gap-8">
+            <a class="text-white underline decoration-2 underline-offset-4 hover:italic hover:text-zinc-300 transition-all hover:translate-y-[-2px]" href="#">Контакти</a>
+        </div>
+    </footer>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  
+        const title = document.getElementById('main-title');
+
+        if (title) {
+            title.addEventListener('mouseenter', () => {
+                
+                title.style.transform = 'scale(1.1)'; 
+            });
+
+            title.addEventListener('mouseleave', () => {
+
+                title.style.transform = 'scale(1)'; 
+            });
+            
+        }
+    });
+</script>
+  
+</body>
+</html>
