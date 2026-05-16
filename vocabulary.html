@@ -23,6 +23,21 @@
                         "background": "#f9f9f9",
                         "on-surface": "#1a1c1c",
                     },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "unit-xs": "0.25rem",
+                        "unit-xl": "4rem",
+                        "gutter-panel": "1rem",
+                        "unit-sm": "0.5rem",
+                        "unit-md": "1rem",
+                        "margin-page": "2rem",
+                        "unit-lg": "2rem"
+                    },
                     fontFamily: {
                         "body-md": ["Be Vietnam Pro"],
                         "headline-md": ["Epilogue"],
@@ -51,10 +66,8 @@
             background-color: #f4f4f4;
             background-image: radial-gradient(#000 1px, transparent 1px);
             background-size: 20px 20px;
-            /* Ефект скрінтону (крапочок), характерний для манґи */
         }
 
-        /* Стилі панелей-кадрів */
         .manga-panel {
             box-shadow: 8px 8px 0px #000;
             transition: transform 0.2s ease;
@@ -66,7 +79,6 @@
             transform: scale(1.05) rotate(2deg);
         }
 
-        /* Хмаринки діалогів */
         .bubble {
             position: relative;
             border: 4px solid #000;
@@ -76,7 +88,6 @@
             box-shadow: 6px 6px 0px #000;
         }
         
-        /* Хвостик хмаринки зліва */
         .bubble-left::after {
             content: '';
             position: absolute;
@@ -101,7 +112,6 @@
             z-index: 1;
         }
 
-        /* Хвостик хмаринки справа */
         .bubble-right {
             background: #000;
             color: #fff;
@@ -118,7 +128,6 @@
             width: 0;
         }
 
-        /* Лінії швидкості на фоні */
         .speed-lines {
             background: repeating-linear-gradient(
                 90deg,
@@ -130,14 +139,13 @@
             transform: skewX(-15deg);
         }
 
-        /* Стилізація звукових ефектів */
         .sfx {
             text-shadow: 3px 3px 0px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
         }
     </style>
 </head>
 
-<body class="text-black font-manga overflow-x-hidden pt-24">
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden pt-24">
 
     <!-- ==================== Header / Навігація ==================== -->
     <header class="bg-white dark:bg-black fixed w-full top-0 left-0 z-50 border-b-4 border-black dark:border-white [clip-path:polygon(0_0,100%_0,98%_100%,0_92%)] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
