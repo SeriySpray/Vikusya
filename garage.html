@@ -1,22 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гараж - DRIFT</title>
     <link rel="icon" href="sakura.png">
-   <link>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Гараж</title>
-  <link rel="stylesheet" href="style.css">
-<nav class="nav-menu">
-  <a class="nav-link " href="index.html">ГОЛОВНА</a>
-   <a class="nav-link " href="history.html">ІСТОРІЯ</a>
-  <a class="nav-link " href="techniques.html">ТЕХНІКИ</a>
-  <a class="nav-link active" href="garage.html">ГАРАЖ</a>
-  <a class="nav-link" href="vocabulary.html">СЛОВНИК</a>
-  <a class="nav-link" href="registration.html">РЕЄСТРАЦІЯ</a>
-</nav>
-<body>
+    <link rel="stylesheet" href="style.css">
 
+    <!-- Google Fonts: Epilogue, Be Vietnam Pro, Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,700;0,800;0,900;1,900&family=Be+Vietnam+Pro:wght@400;500&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#5e5e5e",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e2e2e2",
+                        "primary": "#000000",
+                        "background": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                    },
+                    fontFamily: {
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-md": ["Epilogue"],
+                        "headline-xl": ["Epilogue"],
+                        "label-bold": ["Space Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden pt-24">
+
+    <!-- ==================== Header / Навігація ==================== -->
+    <header class="bg-white dark:bg-black fixed w-full top-0 left-0 z-50 border-b-4 border-black dark:border-white [clip-path:polygon(0_0,100%_0,98%_100%,0_92%)] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div class="flex justify-between items-center w-full px-6 py-4 max-w-[1440px] mx-auto">
+
+            <div class="text-4xl font-black italic tracking-widest text-black dark:text-white uppercase drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] font-headline-md">
+                DRIFT
+            </div>
+
+            <nav class="nav-menu flex gap-4">
+                <a class="nav-link" href="index.html">ГОЛОВНА</a>
+                <a class="nav-link" href="history.html">ІСТОРІЯ</a>
+                <a class="nav-link" href="techniques.html">ТЕХНІКИ</a>
+                <a class="nav-link active" href="garage.html">ГАРАЖ</a>
+                <a class="nav-link" href="vocabulary.html">СЛОВНИК</a>
+                <a class="nav-link" href="registration.html">РЕЄСТРАЦІЯ</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:scale-110 transition-all">directions_car</span>
+                <span class="material-symbols-outlined text-black dark:text-white cursor-pointer hover:scale-110 transition-all">person</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== Main Content ==================== -->
+    <main>
+        <!-- Вміст сторінки Гараж буде тут -->
+    </main>
+
+</body>
 </html>
-
-
