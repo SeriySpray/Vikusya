@@ -9,7 +9,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     initHeroParallax();
     initTitleHoverEffect();
-    applyParagraphFontSize();
 });
 
 // ============================================================
@@ -17,12 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================================
 
 /**
- * Ефект паралаксу для hero-зображення на головній сторінці.
- * При русі миші по контейнеру зображення плавно зміщується,
- * створюючи ефект глибини. При виході курсору — повертається у вихідну позицію.
- *
+ * Ефект паралаксу для Hero-зображення на головній сторінці.
+ * При русі миші зображення злегка зміщується, створюючи глибину.
+ * 
  * Використовується на: index.html
- * Залежності: елементи з класами .manga-image-container та .manga-image
+ * Залежності: елемент з класом .manga-image-container та .manga-image
  */
 function initHeroParallax() {
     const container = document.querySelector('.manga-image-container');
@@ -30,30 +28,28 @@ function initHeroParallax() {
 
     if (!container || !image) return;
 
-    /** Зміщує зображення слідом за позицією курсору */
     container.addEventListener('mousemove', (e) => {
-        const rect = container.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const { width, height } = container.getBoundingClientRect();
+        const mouseX = e.clientX - container.offsetLeft;
+        const mouseY = e.clientY - container.offsetTop;
 
-        // Розрахунок зміщення: від -10px до +10px відносно центру
-        const xMove = ((x / rect.width) - 0.5) * 20;
-        const yMove = ((y / rect.height) - 0.5) * 20;
+        // Обчислюємо відхилення (-10px до 10px)
+        const moveX = (mouseX / width - 0.5) * 20;
+        const moveY = (mouseY / height - 0.5) * 20;
 
-        image.style.transform = `scale(1.1) translate(${xMove}px, ${yMove}px)`;
+        image.style.transform = `scale(1.1) translate(${moveX}px, ${moveY}px)`;
     });
 
-    /** Повертає зображення у вихідну позицію при виході курсору */
+    /** Повертає зображення в центр, коли миша виходить за межі */
     container.addEventListener('mouseleave', () => {
-        image.style.transform = 'scale(1) translate(0px, 0px)';
+        image.style.transform = 'scale(1) translate(0, 0)';
     });
 }
 
 /**
- * Ефект масштабування заголовка при наведенні курсору.
- * Заголовок плавно збільшується (scale 1.1) при hover
- * і повертається до звичайного розміру при mouseleave.
- *
+ * Інтерактивний ефект для заголовка "Отримати ліцензію пілота".
+ * При наведенні заголовок злегка збільшується.
+ * 
  * Використовується на: registration.html
  * Залежності: елемент з id="main-title"
  */
@@ -62,7 +58,7 @@ function initTitleHoverEffect() {
 
     if (!title) return;
 
-    /** Збільшує заголовок при наведенні */
+    /** Збільшує заголовок при mouseenter */
     title.addEventListener('mouseenter', () => {
         title.style.transform = 'scale(1.1)';
     });
