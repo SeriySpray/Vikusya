@@ -33,11 +33,13 @@ function initMobileMenu() {
     const openMenu = () => {
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
     };
 
     const closeMenu = () => {
         overlay.classList.remove('active');
         document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
     };
 
     openBtn.addEventListener('click', (e) => {
