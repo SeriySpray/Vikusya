@@ -72,17 +72,3 @@ function initTitleHoverEffect() {
         title.style.transform = 'scale(1)';
     });
 }
-
-/**
- * Встановлює розмір шрифту 80px для всіх параграфів на сторінці.
- *
- * Використовується на: index.html
- * Примітка: Ця функція зберігає оригінальну поведінку inline-скрипту.
- */
-function applyParagraphFontSize() {
-    const paragraphs = document.getElementsByTagName('p');
-
-    for (let i = 0; i < paragraphs.length; i++) {
-        paragraphs[i].style.fontSize = '80px';
-    }
-}
