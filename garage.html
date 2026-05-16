@@ -30,6 +30,21 @@
                         "background": "#f9f9f9",
                         "on-surface": "#1a1c1c",
                     },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "unit-xs": "0.25rem",
+                        "unit-xl": "4rem",
+                        "gutter-panel": "1rem",
+                        "unit-sm": "0.5rem",
+                        "unit-md": "1rem",
+                        "margin-page": "2rem",
+                        "unit-lg": "2rem"
+                    },
                     fontFamily: {
                         "body-md": ["Be Vietnam Pro"],
                         "headline-md": ["Epilogue"],
@@ -81,9 +96,12 @@
     </div>
 
     <!-- ==================== Main Content ==================== -->
-    <main>
+    <main class="container mx-auto px-margin-page py-10">
         <!-- Вміст сторінки Гараж буде тут -->
     </main>
+
+    <!-- Головний JS-файл -->
+    <script src="main.js"></script>
 
 </body>
 </html>
