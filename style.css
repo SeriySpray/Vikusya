@@ -2079,21 +2079,20 @@ input:where([type='file']):focus {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  background-color: rgba(0, 0, 0, 0.95);
-  z-index: 9999 !important;
+  width: 100% !important;
+  height: 100% !important;
+  height: 100dvh !important; /* Dynamic Viewport Height for mobile browsers */
+  background-color: rgba(0, 0, 0, 0.98);
+  z-index: 99999 !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  padding: 2rem;
+  box-sizing: border-box;
 }
 
 .mobile-menu-overlay.active {
