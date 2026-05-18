@@ -97,7 +97,34 @@
 
     <!-- ==================== Main Content ==================== -->
     <main class="container mx-auto px-margin-page py-10 overflow-x-hidden">
-        <!-- Вміст сторінки Гараж буде тут -->
+        
+        <!-- Section Header -->
+        <div class="mb-12 relative">
+            <h1 class="text-6xl md:text-8xl font-black italic uppercase text-black dark:text-white leading-none drop-shadow-[6px_6px_0px_rgba(0,0,0,0.1)]">
+                Гонщики <span class="text-error">&</span> Машини
+            </h1>
+            <div class="h-2 w-32 bg-error mt-4"></div>
+            <p class="mt-6 text-xl text-surface-tint max-w-2xl font-medium">
+                Еліта українського та світового дрифту. Потужні агрегати, унікальні профілі та історія кожного пілота.
+            </p>
+        </div>
+
+        <!-- Filters (Optional but looks cool) -->
+        <div class="flex flex-wrap gap-4 mb-10">
+            <button class="px-6 py-2 bg-black text-white font-label-bold uppercase tracking-widest hover:bg-error transition-colors">Всі</button>
+            <button class="px-6 py-2 border-2 border-black text-black font-label-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">Професіонали</button>
+            <button class="px-6 py-2 border-2 border-black text-black font-label-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">Новачки</button>
+        </div>
+
+        <!-- Garage Grid -->
+        <div id="garage-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            <!-- Loading State -->
+            <div class="col-span-full py-20 flex flex-col items-center justify-center opacity-50">
+                <span class="material-symbols-outlined animate-spin text-6xl mb-4">refresh</span>
+                <p class="font-label-bold uppercase tracking-widest">Завантаження бази даних...</p>
+            </div>
+        </div>
+
     </main>
 
     <!-- Головний JS-файл -->
