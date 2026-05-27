@@ -99,7 +99,7 @@
     <main class="container mx-auto px-margin-page py-10 overflow-x-hidden">
         
         <!-- Section Header -->
-        <div class="mb-12 relative">
+        <header class="mb-12 relative">
             <h1 class="text-6xl md:text-8xl font-black italic uppercase text-black dark:text-white leading-none drop-shadow-[6px_6px_0px_rgba(0,0,0,0.1)]">
                 Гонщики <span class="text-error">&</span> Машини
             </h1>
@@ -107,23 +107,23 @@
             <p class="mt-6 text-xl text-surface-tint max-w-2xl font-medium">
                 Еліта українського та світового дрифту. Потужні агрегати, унікальні профілі та історія кожного пілота.
             </p>
-        </div>
+        </header>
 
         <!-- Filters (Optional but looks cool) -->
-        <div class="flex flex-wrap gap-4 mb-10">
+        <section class="flex flex-wrap gap-4 mb-10" aria-label="Фільтрація автомобілів">
             <button class="px-6 py-2 bg-black text-white font-label-bold uppercase tracking-widest hover:bg-error transition-colors">Всі</button>
             <button class="px-6 py-2 border-2 border-black text-black font-label-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">Професіонали</button>
             <button class="px-6 py-2 border-2 border-black text-black font-label-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">Новачки</button>
-        </div>
+        </section>
 
         <!-- Garage Grid -->
-        <div id="garage-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <section id="garage-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8" aria-live="polite">
             <!-- Loading State -->
             <div class="col-span-full py-20 flex flex-col items-center justify-center opacity-50">
                 <span class="material-symbols-outlined animate-spin text-6xl mb-4">refresh</span>
                 <p class="font-label-bold uppercase tracking-widest">Завантаження бази даних...</p>
             </div>
-        </div>
+        </section>
 
     </main>
 

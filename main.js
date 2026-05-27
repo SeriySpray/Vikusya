@@ -52,12 +52,12 @@ function renderGarage(drifters) {
     container.innerHTML = ''; // Очищуємо лоадер
 
     drifters.forEach(d => {
-        const card = document.createElement('div');
+        const card = document.createElement('article');
         card.className = "group relative bg-white border-4 border-black p-6 transition-all hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(255,0,0,1)]";
         
         card.innerHTML = `
             <!-- Drifter Header -->
-            <div class="flex justify-between items-start mb-6">
+            <header class="flex justify-between items-start mb-6">
                 <div>
                     <h3 class="text-3xl font-black italic uppercase leading-tight">${d.name}</h3>
                     <div class="bg-black text-white px-3 py-1 text-sm font-label-bold inline-block mt-1 uppercase tracking-tighter">
@@ -68,18 +68,18 @@ function renderGarage(drifters) {
                     <span class="text-xs font-label-bold uppercase text-surface-tint block">Країна</span>
                     <span class="text-lg font-black">${d.nationality}</span>
                 </div>
-            </div>
+            </header>
 
             <!-- Image Section -->
-            <div class="relative aspect-video mb-6 overflow-hidden border-2 border-black bg-gray-100">
-                <img src="${d.photo_url}" alt="${d.name}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+            <figure class="relative aspect-video mb-6 overflow-hidden border-2 border-black bg-gray-100">
+                <img src="${d.photo_url}" alt="Фото професійного дрифтера ${d.name} (${d.nickname || 'PILOT'})" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                 <div class="absolute bottom-0 left-0 bg-error text-white px-4 py-2 text-sm font-black italic uppercase translate-y-full group-hover:translate-y-0 transition-transform">
                     View Profile
                 </div>
-            </div>
+            </figure>
 
             <!-- Car Specs (The "Garage" part) -->
-            <div class="border-t-2 border-black pt-4">
+            <section class="border-t-2 border-black pt-4">
                 <div class="flex items-center gap-2 mb-3">
                     <span class="material-symbols-outlined text-error">settings</span>
                     <h4 class="font-label-bold uppercase tracking-widest text-sm">Технічні характеристики</h4>
@@ -103,10 +103,7 @@ function renderGarage(drifters) {
                         <span class="font-black">READY</span>
                     </div>
                 </div>
-                
-                <!-- Secondary image (Car) if needed -->
-                <!-- <img src="${d.car_photo}" class="hidden"> -->
-            </div>
+            </section>
 
             <!-- Bio -->
             <p class="mt-6 text-sm text-surface-tint line-clamp-2 italic">
@@ -114,7 +111,7 @@ function renderGarage(drifters) {
             </p>
 
             <!-- Decorative Elements -->
-            <div class="absolute top-2 right-2 flex gap-1">
+            <div class="absolute top-2 right-2 flex gap-1" aria-hidden="true">
                 <div class="w-2 h-2 bg-black rounded-full"></div>
                 <div class="w-2 h-2 bg-black/20 rounded-full"></div>
             </div>
