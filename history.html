@@ -55,7 +55,7 @@
         }
     </script>
 
-    <!-- Page-specific styles: manga panels -->
+    <!-- Page-specific styles: manga panels & parallax -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
 
@@ -69,7 +69,48 @@
             background-color: #f9f9f9;
             color: #000;
             font-family: 'Neucha', cursive, sans-serif;
-            padding: 0; /* Прибираємо фіксований падінг, який заважав */
+            overflow-x: hidden;
+            position: relative; /* Необхідно для правильного позиціювання абсолютних елементів */
+        }
+
+        /* Стабільний манга-фон */
+        .speed-lines-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Комбінація крапок (screentone) та ліній швидкості */
+            background-image: 
+                radial-gradient(#000 10%, transparent 11%),
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 100px);
+            background-size: 12px 12px, 100% 100%;
+            /* Прибираємо background-attachment: fixed, щоб анімувати позицію вручну */
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+            will-change: background-position;
+        }
+
+        /* Більш динамічна ономатопея */
+        .bg-onomatopeia {
+            position: absolute;
+            font-family: 'Epilogue', sans-serif;
+            font-weight: 900;
+            color: #000;
+            opacity: 0.08;
+            z-index: -1;
+            pointer-events: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+            filter: drop-shadow(4px 4px 0px rgba(255,255,255,0.5));
+            will-change: transform;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(var(--base-rotation)); }
+            50% { transform: translate(10px, -20px) rotate(calc(var(--base-rotation) + 5deg)); }
         }
 
         .manga-page {
@@ -77,35 +118,46 @@
             width: 100%;
             max-width: 1000px;
             padding: 20px;
-            margin-bottom: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 100px auto;
+            box-shadow: 25px 25px 0px rgba(0, 0, 0, 1); /* Збільшено тінь */
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-auto-rows: minmax(250px, auto);
-            gap: 12px;
-            border: 4px solid #000;
+            gap: 20px;
+            border: 8px solid #000; /* Товстіша рамка */
+            transition: transform 0.4s ease-out;
         }
 
         .panel {
             position: relative;
-            border: 4px solid #000;
+            border: 5px solid #000;
             background-color: #fff;
             overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Стилізація зображень під чорно-білу мангу */
+        .panel.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1) skewX(1deg);
+        }
+
         .panel img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(100%) contrast(180%) brightness(90%);
-            mix-blend-mode: multiply;
+            filter: grayscale(100%) contrast(150%) brightness(95%);
+            transition: transform 0.5s ease;
         }
 
-        /* Ефект скрінтону (манга-крапочки) */
+        .panel:hover img {
+            transform: scale(1.05);
+        }
+
         .screentone {
             position: absolute;
             top: 0;
@@ -113,67 +165,140 @@
             width: 100%;
             height: 100%;
             background-image: radial-gradient(#000 1px, transparent 1px);
-            background-size: 4px 4px;
-            opacity: 0.25;
+            background-size: 5px 5px;
+            opacity: 0.15;
             pointer-events: none;
             z-index: 2;
         }
 
-        /* Хмарки для тексту */
+        /* Хмарки для тексту з анімацією */
         .speech-bubble {
             position: absolute;
             background: #fff;
-            border: 3px solid #000;
-            padding: 15px 20px;
+            border: 4px solid #000;
+            padding: 15px 25px;
             border-radius: 50% / 40%;
             color: #000;
             font-weight: bold;
-            font-size: 1.1rem;
-            line-height: 1.2;
+            font-size: 1.2rem;
+            line-height: 1.1;
             text-align: center;
-            max-width: 85%;
-            box-shadow: 4px 4px 0px #000;
-            z-index: 5;
-            letter-spacing: 0.5px;
+            max-width: 80%;
+            box-shadow: 6px 6px 0px #000;
+            z-index: 10;
+            opacity: 0;
+            transform: scale(0) rotate(-5deg);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
+        }
+
+        .panel.visible .speech-bubble {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.4s;
         }
 
         .speech-bubble.square {
-            border-radius: 5px;
-            padding: 10px 15px;
+            border-radius: 2px;
+            transform: scale(0) skewY(2deg);
+        }
+        
+        .panel.visible .speech-bubble.square {
+            transform: scale(1) skewY(0deg);
         }
 
         .speech-bubble.dark {
             background: #000;
             color: #fff;
             border-color: #fff;
-            box-shadow: 4px 4px 0px #fff;
+            box-shadow: 6px 6px 0px #333;
         }
+
+        /* Хвостики для баблів */
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 20%;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid #000;
+        }
+
+        .speech-bubble.top-right::after { left: auto; right: 20%; }
+        .speech-bubble.dark::after { border-top-color: #000; }
+        .speech-bubble.square::after { display: none; }
 
         /* Розміри фреймів */
         .span-1 { grid-column: span 1; }
         .span-2 { grid-column: span 2; }
         .span-3 { grid-column: span 3; }
-        .span-4 { grid-column: span 4; min-height: 350px; }
-        
+        .span-4 { grid-column: span 4; min-height: 400px; }
         .row-2 { grid-row: span 2; }
 
         /* Позиціювання тексту */
-        .top-left { top: 15px; left: 15px; }
-        .top-right { top: 15px; right: 15px; }
-        .bottom-left { bottom: 15px; left: 15px; }
-        .bottom-right { bottom: 15px; right: 15px; }
-        .center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .top-left { top: 20px; left: 20px; }
+        .top-right { top: 20px; right: 20px; }
+        .bottom-left { bottom: 20px; left: 20px; }
+        .bottom-right { bottom: 20px; right: 20px; }
+        .center { top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0) !important; }
+        .panel.visible .center { transform: translate(-50%, -50%) scale(1) !important; }
+
+        /* Parallax layers */
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            will-change: transform;
+        }
 
         @media (max-width: 768px) {
             .manga-page {
                 grid-template-columns: repeat(2, 1fr);
+                width: 95%;
+                gap: 10px;
             }
             .span-3, .span-4 { grid-column: span 2; }
+            .speech-bubble { font-size: 1rem; padding: 10px 15px; }
         }
     </style>
 </head>
 
-<body class="overflow-x-hidden pt-24 bg-background">
+<body class="overflow-x-hidden pt-24 bg-background relative">
+    <div class="speed-lines-bg"></div>
+    
+    <!-- Контейнер для ономатопеї, який не дає їм розтягувати сторінку вниз -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-[-1]" id="onomatopeia-container">
+        <div class="bg-onomatopeia" style="top: 2%; left: 5%; font-size: 10rem; transform: rotate(-10deg);" data-speed="0.1">ドドド</div>
+        <div class="bg-onomatopeia" style="top: 6%; right: 2%; font-size: 12rem; transform: rotate(15deg);" data-speed="0.15">ギャギャギャ</div>
+        <div class="bg-onomatopeia" style="top: 10%; left: 15%; font-size: 8rem; transform: rotate(-5deg);" data-speed="0.08">シュウウ</div>
+        <div class="bg-onomatopeia" style="top: 14%; right: 10%; font-size: 9rem; opacity: 0.05;" data-speed="0.12">キイィィ</div>
+        <div class="bg-onomatopeia" style="top: 18%; left: 2%; font-size: 14rem; transform: rotate(8deg);" data-speed="0.1">バアアア</div>
+        <div class="bg-onomatopeia" style="top: 22%; right: 15%; font-size: 11rem; transform: rotate(-12deg);" data-speed="0.14">ズザザザ</div>
+        <div class="bg-onomatopeia" style="top: 26%; left: 20%; font-size: 13rem; transform: rotate(5deg);" data-speed="0.09">ゴゴゴゴ</div>
+        <div class="bg-onomatopeia" style="top: 30%; right: 5%; font-size: 10rem; transform: rotate(-8deg);" data-speed="0.11">ガオオオ</div>
+        <div class="bg-onomatopeia" style="top: 34%; left: 8%; font-size: 15rem; transform: rotate(10deg);" data-speed="0.13">ギュルルル</div>
+        <div class="bg-onomatopeia" style="top: 38%; right: 12%; font-size: 12rem; transform: rotate(-5deg);" data-speed="0.07">ドオオオン</div>
+        <div class="bg-onomatopeia" style="top: 42%; left: 10%; font-size: 11rem; transform: rotate(-15deg);" data-speed="0.12">ゴォォォ</div>
+        <div class="bg-onomatopeia" style="top: 46%; right: 3%; font-size: 13rem; transform: rotate(12deg);" data-speed="0.15">キュィィィン</div>
+        <div class="bg-onomatopeia" style="top: 50%; left: 5%; font-size: 14rem; transform: rotate(-5deg);" data-speed="0.09">ドドッド</div>
+        <div class="bg-onomatopeia" style="top: 54%; right: 18%; font-size: 10rem; transform: rotate(10deg);" data-speed="0.11">パパパッ</div>
+        <div class="bg-onomatopeia" style="top: 58%; left: 12%; font-size: 12rem; transform: rotate(-10deg);" data-speed="0.13">フゥゥゥ</div>
+        <div class="bg-onomatopeia" style="top: 62%; right: 8%; font-size: 15rem; transform: rotate(5deg);" data-speed="0.08">ガガガ</div>
+        <div class="bg-onomatopeia" style="top: 66%; left: 3%; font-size: 9rem; transform: rotate(-12deg);" data-speed="0.14">ゾクッ</div>
+        <div class="bg-onomatopeia" style="top: 70%; right: 15%; font-size: 11rem; transform: rotate(15deg);" data-speed="0.1">カッ</div>
+        <div class="bg-onomatopeia" style="top: 74%; left: 20%; font-size: 13rem; transform: rotate(-8deg);" data-speed="0.12">ボオォォ</div>
+        <div class="bg-onomatopeia" style="top: 78%; right: 2%; font-size: 12rem; transform: rotate(10deg);" data-speed="0.07">ドォッ</div>
+        <div class="bg-onomatopeia" style="top: 82%; left: 8%; font-size: 10rem; transform: rotate(-5deg);" data-speed="0.11">シュッ</div>
+        <div class="bg-onomatopeia" style="top: 86%; right: 10%; font-size: 14rem; transform: rotate(12deg);" data-speed="0.15">ギギギ</div>
+        <div class="bg-onomatopeia" style="top: 90%; left: 15%; font-size: 11rem; transform: rotate(-10deg);" data-speed="0.09">ブォォ</div>
+        <div class="bg-onomatopeia" style="top: 94%; right: 5%; font-size: 13rem; transform: rotate(8deg);" data-speed="0.13">ドッドッド</div>
+        <div class="bg-onomatopeia" style="top: 98%; left: 5%; font-size: 15rem; transform: rotate(-15deg);" data-speed="0.1">ジジジ</div>
+    </div>
 
     <!-- ==================== Header / Навігація ==================== -->
     <header class="bg-white dark:bg-black fixed w-[calc(100%-8px)] md:w-full top-0 left-0 z-50 border-b-4 border-black dark:border-white [clip-path:polygon(0_0,100%_0,98%_100%,0_92%)] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
@@ -467,5 +592,61 @@
     <!-- Головний JS-файл -->
     <script src="main.js"></script>
 
+    <!-- Скріпт для анімації манги та паралаксу -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const panels = document.querySelectorAll('.panel');
+            const onomas = document.querySelectorAll('.bg-onomatopeia');
+            
+            // Intersection Observer для виявлення панелей у в’юпорті
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            panels.forEach(panel => {
+                observer.observe(panel);
+            });
+
+            // Паралакс для зображень та фонових ліній
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                
+                // Стабільний рух фонових ліній через зміщення текстури, а не всього блоку
+                document.querySelector('.speed-lines-bg').style.backgroundPositionY = `${scrolled * 0.1}px`;
+
+                // Рух ономатопеї
+                onomas.forEach(onoma => {
+                    const speed = parseFloat(onoma.getAttribute('data-speed'));
+                    onoma.style.transform = `translateY(${scrolled * speed}px) ${onoma.style.transform.split(') ')[1] || ''}`;
+                });
+
+                // Рух зображень всередині видимих панелей (зменшено інтенсивність)
+                document.querySelectorAll('.panel.visible').forEach(panel => {
+                    const img = panel.querySelector('img');
+                    if (img) {
+                        const rect = panel.getBoundingClientRect();
+                        const offset = (window.innerHeight - rect.top) * 0.02;
+                        img.style.transform = `scale(1.05) translateY(${offset}px)`;
+                    }
+                });
+
+                // Легкий нахил сторінок манги при скролі (зменшено інтенсивність)
+                document.querySelectorAll('.manga-page').forEach(page => {
+                    const rect = page.getBoundingClientRect();
+                    const rotate = (window.innerHeight / 2 - rect.top) * 0.001;
+                    page.style.transform = `skewX(${Math.min(Math.max(rotate, -0.5), 0.5)}deg)`;
+                });
+            });
+        });
+    </script>
 </body>
 </html>
